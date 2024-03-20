@@ -1,9 +1,12 @@
 from flask import Flask, Response
+from flask_cors import CORS
 from helpers.sentiment_analyser import SentimentAnalyser
 
 # Initialise the app.
 app = Flask(__name__)
 
+# Enable CORS.
+CORS(app)
 
 @app.route('/<relevant_text>', methods=['GET'])
 def get_sentiment(relevant_text: str):
